@@ -1,4 +1,4 @@
-package com.ik.calendarlibrary;
+package com.github.ik024.ik_calendar_lib;
 
 import android.content.Context;
 import android.graphics.Color;

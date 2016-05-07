@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ik.calendarlibrary.MainActivity">
+    tools:context="com.github.ik024.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,12 +13,12 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
 
-    <fragment
-        android:id="@+id/frag_month_calendar"
+    <com.github.ik024.ik_calendar_lib.MonthCalendar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/calendar_month_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.ik.calendarlibrary.CalendarMonthFragment"
-        tools:layout="@layout/fragment_calendar_month" />
+        android:layout_height="wrap_content"/>
+
 
 
 </LinearLayout>

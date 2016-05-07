@@ -1,4 +1,4 @@
-package com.github.ik024;
+package com.github.ik024.ik_calendar_lib;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.ik.calendarlibrary;
+package com.github.ik024;
 
 import android.content.Context;
 import android.os.Bundle;

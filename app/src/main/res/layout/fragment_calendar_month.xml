@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ik.calendarlibrary.CalendarMonthFragment">
+    tools:context="com.github.ik024.CalendarMonthFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
