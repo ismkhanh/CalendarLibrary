@@ -2,7 +2,6 @@ package com.github.ik024.ik_calendar_lib;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +27,8 @@ public class CalendarGridAdapter extends BaseAdapter {
     List<String> mItemList = Collections.EMPTY_LIST;
     List<Date> mEventList = Collections.EMPTY_LIST;
     int mToday, mMonth, mYear, mDisplayMonth, mDisplayYear;
+    int mCurrentDayTextColor, mDaysOfMonthTextColor, mDaysOfWeekTextColor, mMonthNameTextColor,
+    mEventDayBackgroundColor, mEventDayTextColor;
 
     public CalendarGridAdapter(Context context, int year, int month, int today){
         mContext = context;
@@ -99,6 +100,22 @@ public class CalendarGridAdapter extends BaseAdapter {
         return cal.getTime();
     }
 
+    public void setCurrentDayTextColor(int color){
+        mCurrentDayTextColor = color;
+    }
+
+    public void setDaysOfMonthTextColor(int color){
+        mDaysOfMonthTextColor = color;
+    }
+
+    public void setDaysOfWeekTextColor(int color){
+        mDaysOfWeekTextColor = color;
+    }
+
+    public void setMonthNameTextColor(int color){
+        mMonthNameTextColor = color;
+    }
+
     @Override
     public int getCount() {
         return mItemList.size();
@@ -128,17 +145,18 @@ public class CalendarGridAdapter extends BaseAdapter {
 
         if(position < 7){
             mHolder.tvCalendarMonthDay.setVisibility(View.GONE);
-            mHolder.tvCalendarMonthDayName.setVisibility(View.VISIBLE);
-            mHolder.tvCalendarMonthDayName.setText(item);
+            mHolder.tvCalendarWeekDayName.setVisibility(View.VISIBLE);
+            mHolder.tvCalendarWeekDayName.setText(item);
+            mHolder.tvCalendarWeekDayName.setTextColor(mDaysOfWeekTextColor);
         }else{
 
-            mHolder.tvCalendarMonthDayName.setVisibility(View.GONE);
+            mHolder.tvCalendarWeekDayName.setVisibility(View.GONE);
             mHolder.tvCalendarMonthDay.setVisibility(View.VISIBLE);
             mHolder.tvCalendarMonthDay.setText(mItemList.get(position));
 
             if(!item.isEmpty()) {
                 if (mToday == Integer.parseInt(item) && mDisplayMonth == mMonth && mDisplayYear == mYear) {
-                    mHolder.tvCalendarMonthDay.setTextColor(ContextCompat.getColorStateList(mContext, R.color.colorAccent));
+                    mHolder.tvCalendarMonthDay.setTextColor(mCurrentDayTextColor);
                 }else{
                     Date date = getDate(mDisplayYear, mDisplayMonth, Integer.parseInt(item));
                     if(mEventList.contains(date)){
@@ -146,7 +164,7 @@ public class CalendarGridAdapter extends BaseAdapter {
                         mHolder.tvCalendarMonthDay.setTextColor(Color.WHITE);
                     }else{
                         mHolder.tvCalendarMonthDay.setBackgroundResource(R.drawable.textview_background_no_event);
-                        mHolder.tvCalendarMonthDay.setTextColor(Color.BLACK);
+                        mHolder.tvCalendarMonthDay.setTextColor(mDaysOfMonthTextColor);
                     }
                 }
             }
@@ -158,9 +176,9 @@ public class CalendarGridAdapter extends BaseAdapter {
     MyViewHolder mHolder;
     class MyViewHolder{
 
-        TextView tvCalendarMonthDay, tvCalendarMonthDayName;
+        TextView tvCalendarMonthDay, tvCalendarWeekDayName;
         public MyViewHolder(View view){
-            tvCalendarMonthDayName = (TextView) view.findViewById(R.id.row_cm_tv_day_name);
+            tvCalendarWeekDayName = (TextView) view.findViewById(R.id.row_cm_tv_week_day_name);
             tvCalendarMonthDay = (TextView) view.findViewById(R.id.row_cm_tv_day);
         }
     }

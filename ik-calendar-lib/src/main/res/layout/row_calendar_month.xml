@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/row_cm_tv_day_name"
+        android:id="@+id/row_cm_tv_week_day_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

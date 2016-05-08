@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MonthCalendar">
+        <attr name="currentDayTextColor" format="color"/>
+        <attr name="monthNameTextColor" format="color"/>
+        <attr name="daysOfMonthTextColor" format="color"/>
+        <attr name="daysOfWeekTextColor" format="color"/>
+        <attr name="eventDayBackgroundColor" format="color"/>
+        <attr name="eventDayTextColor" format="color"/>
+        <attr name="prevButtonBackground" format="integer" />
+        <attr name="nextButtonBackground" format="integer" />
+    </declare-styleable>
+</resources>
