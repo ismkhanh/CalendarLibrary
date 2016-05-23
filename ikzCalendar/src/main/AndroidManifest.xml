@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.ik024.ik_calendar_lib">
+    package="com.github.ik024.ikzCalendar">
 
     <application
         android:allowBackup="true"

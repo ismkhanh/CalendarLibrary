@@ -7,7 +7,10 @@
         <attr name="daysOfWeekTextColor" format="color"/>
         <attr name="eventDayBackgroundColor" format="color"/>
         <attr name="eventDayTextColor" format="color"/>
-        <attr name="prevButtonBackground" format="integer" />
-        <attr name="nextButtonBackground" format="integer" />
+        <attr name="calendarBackgroundColor" format="color" />
+        <attr name="MonthNameBackgroundColor" format="color" />
+        <attr name="prevButtonBackgroundResource" format="reference" />
+        <attr name="nextButtonBackgroundResource" format="reference" />
+
     </declare-styleable>
 </resources>

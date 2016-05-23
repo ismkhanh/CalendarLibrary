@@ -1,1 +1,1 @@
-include ':app', ':ik-calendar-lib'
+include ':app', ':ikzCalendar'

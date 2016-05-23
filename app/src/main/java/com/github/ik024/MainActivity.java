@@ -3,15 +3,17 @@ package com.github.ik024;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
-import com.github.ik024.ik_calendar_lib.MonthCalendar;
+import com.github.ik024.ikzCalendar.ICalendarClickListeners;
+import com.github.ik024.ikzCalendar.MonthCalendar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ICalendarClickListeners{
 
     MonthCalendar monthCalendar;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         monthCalendar = (MonthCalendar) findViewById(R.id.calendar_month_view);
+        monthCalendar.registerClickListener(this);
 
         List<Date> eventList = new ArrayList<>();
         eventList.add(getDate(2016, 4, 9));
@@ -42,5 +45,10 @@ public class MainActivity extends AppCompatActivity {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
         return cal.getTime();
+    }
+
+    @Override
+    public void dateClicked(Date dateClicked) {
+        Toast.makeText(this, "date: "+dateClicked.toString(), Toast.LENGTH_LONG).show();
     }
 }

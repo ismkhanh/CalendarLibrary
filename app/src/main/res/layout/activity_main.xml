@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.github.ik024.MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -14,13 +13,17 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-    <com.github.ik024.ik_calendar_lib.MonthCalendar xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.github.ik024.ikzCalendar.MonthCalendar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/calendar_month_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:currentDayTextColor="@color/colorAccent"
-        app:daysOfWeekTextColor="@color/colorPrimary"
+        app:daysOfWeekTextColor="@android:color/black"
         app:daysOfMonthTextColor="@android:color/darker_gray"
-        app:monthNameTextColor="@color/colorPrimaryDark"/>
+        app:monthNameTextColor="@color/colorAccent"
+        app:prevButtonBackgroundResource="@drawable/ic_left_arrow"
+        app:nextButtonBackgroundResource="@drawable/ic_right_arrow"
+        app:calendarBackgroundColor="@android:color/white"
+        android:layout_centerInParent="true"/>
 
-</LinearLayout>
+</RelativeLayout>
