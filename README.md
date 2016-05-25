@@ -6,6 +6,12 @@ In order to use this library in your project add the below dependencies is your 
  **build.gradle** file
 
 ```
+repositories {
+    maven {
+        url 'https://dl.bintray.com/ik/maven/'
+    }
+}
+ ...
 dependencies {
     compile 'com.github.ik024:calendar-lib:+'
 }
