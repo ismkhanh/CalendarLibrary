@@ -2,13 +2,13 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'ikzCalendar'
+    bintrayName = 'calendar-lib'
 
     publishedGroupId = 'com.github.ik024'
-    libraryName = 'ikzCalendar'
-    artifact = 'ikzCalendar'
+    libraryName = 'CalendarLibrary'
+    artifact = 'calendar-lib'
 
-    libraryDescription = 'Month View of Calendar for Android'
+    libraryDescription = 'Android Calendar Library with Month and Year View'
 
     siteUrl = 'https://github.com/ik024/CalendarLibrary'
     gitUrl = 'https://github.com/ik024/CalendarLibrary.git'
