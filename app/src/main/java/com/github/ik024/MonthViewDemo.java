@@ -5,17 +5,17 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.github.ik024.calendar_lib.ICalendarClickListeners;
-import com.github.ik024.calendar_lib.MonthCalendar;
+import com.github.ik024.calendar_lib.CalendarClickListeners;
+import com.github.ik024.calendar_lib.MonthCalendarView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class MonthViewDemo extends AppCompatActivity implements ICalendarClickListeners{
+public class MonthViewDemo extends AppCompatActivity implements CalendarClickListeners {
 
-    MonthCalendar monthCalendar;
+    MonthCalendarView monthCalendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,15 @@ public class MonthViewDemo extends AppCompatActivity implements ICalendarClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        monthCalendar = (MonthCalendar) findViewById(R.id.calendar_month_view);
-        monthCalendar.registerClickListener(this);
+        monthCalendarView = (MonthCalendarView) findViewById(R.id.calendar_month_view);
+        monthCalendarView.registerClickListener(this);
 
         List<Date> eventList = new ArrayList<>();
         eventList.add(getDate(2016, 4, 9));
         eventList.add(getDate(2016, 4, 11));
         eventList.add(getDate(2016, 4, 13));
         eventList.add(getDate(2016, 4, 15));
-        monthCalendar.setEventList(eventList);
+        monthCalendarView.setEventList(eventList);
     }
 
     private Date getDate(int year, int month, int day) {

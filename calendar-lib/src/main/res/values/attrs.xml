@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MonthCalendar">
+    <declare-styleable name="MonthCalendarView">
         <attr name="currentDayTextColor" format="color"/>
         <attr name="monthNameTextColor" format="color"/>
         <attr name="daysOfMonthTextColor" format="color"/>

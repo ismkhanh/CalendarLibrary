@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by ismail.khan2 on 4/22/2016.
  */
-public class MonthCalendar extends LinearLayout {
+public class MonthCalendarView extends LinearLayout {
 
     Context mContext;
     RelativeLayout mRlHeader;
@@ -39,19 +39,19 @@ public class MonthCalendar extends LinearLayout {
 
     Drawable mLeftArrowDrawable, mRightArrowDrawable;
 
-    ICalendarClickListeners mListener;
+    CalendarClickListeners mListener;
 
-    public MonthCalendar(Context context) {
+    public MonthCalendarView(Context context) {
         super(context);
         initLayout(context, null);
     }
 
-    public MonthCalendar(Context context, AttributeSet attributeSet) {
+    public MonthCalendarView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         initLayout(context, attributeSet);
     }
 
-    public void registerClickListener(ICalendarClickListeners listener){
+    public void registerClickListener(CalendarClickListeners listener){
         mListener = listener;
     }
 
@@ -64,18 +64,18 @@ public class MonthCalendar extends LinearLayout {
         mContext = context;
 
         if (attrs != null) {
-            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MonthCalendar);
-            currentDayTextColor = typedArray.getColor(R.styleable.MonthCalendar_currentDayTextColor,
+            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MonthCalendarView);
+            currentDayTextColor = typedArray.getColor(R.styleable.MonthCalendarView_currentDayTextColor,
                     ContextCompat.getColor(context, R.color.colorAccent));
-            daysOfMonthTextColor = typedArray.getColor(R.styleable.MonthCalendar_daysOfMonthTextColor,
+            daysOfMonthTextColor = typedArray.getColor(R.styleable.MonthCalendarView_daysOfMonthTextColor,
                     Color.BLACK);
-            monthTextColor = typedArray.getColor(R.styleable.MonthCalendar_monthNameTextColor,
+            monthTextColor = typedArray.getColor(R.styleable.MonthCalendarView_monthNameTextColor,
                     Color.RED);
-            daysOfWeekTextColor = typedArray.getColor(R.styleable.MonthCalendar_daysOfWeekTextColor,
+            daysOfWeekTextColor = typedArray.getColor(R.styleable.MonthCalendarView_daysOfWeekTextColor,
                     Color.BLACK);
-            calendarBackgroundColor = typedArray.getColor(R.styleable.MonthCalendar_calendarBackgroundColor, Color.TRANSPARENT);
-            mLeftArrowDrawable = typedArray.getDrawable(R.styleable.MonthCalendar_prevButtonBackgroundResource);
-            mRightArrowDrawable = typedArray.getDrawable(R.styleable.MonthCalendar_nextButtonBackgroundResource);
+            calendarBackgroundColor = typedArray.getColor(R.styleable.MonthCalendarView_calendarBackgroundColor, Color.TRANSPARENT);
+            mLeftArrowDrawable = typedArray.getDrawable(R.styleable.MonthCalendarView_prevButtonBackgroundResource);
+            mRightArrowDrawable = typedArray.getDrawable(R.styleable.MonthCalendarView_nextButtonBackgroundResource);
         } else {
             currentDayTextColor = ContextCompat.getColor(context, R.color.colorAccent);
             daysOfMonthTextColor = Color.GRAY;

@@ -5,6 +5,6 @@ import java.util.Date;
 /**
  * Created by ismail.khan2 on 5/23/2016.
  */
-public interface ICalendarClickListeners {
+public interface CalendarClickListeners {
     void dateClicked(Date dateClicked);
 }
