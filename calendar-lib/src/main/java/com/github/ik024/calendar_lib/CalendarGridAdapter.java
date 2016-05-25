@@ -112,12 +112,15 @@ public class CalendarGridAdapter extends BaseAdapter {
 
         String item = mItemList.get(position);
 
-        if(position < 7){
+
+        if(position < 7){//position 0-6 are reserved for days of the weeks (weekdays & weekends)
+
             mHolder.tvCalendarMonthDay.setVisibility(View.GONE);
             mHolder.tvCalendarWeekDayName.setVisibility(View.VISIBLE);
             mHolder.tvCalendarWeekDayName.setText(item);
             mHolder.tvCalendarWeekDayName.setTextColor(mDaysOfWeekTextColor);
-        }else{
+
+        }else{ //positions >= 7 are reserved for days of the month (eg 1 to 31)
 
             mHolder.tvCalendarWeekDayName.setVisibility(View.GONE);
             mHolder.tvCalendarMonthDay.setVisibility(View.VISIBLE);
