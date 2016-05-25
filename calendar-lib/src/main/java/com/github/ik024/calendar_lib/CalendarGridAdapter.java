@@ -26,8 +26,7 @@ public class CalendarGridAdapter extends BaseAdapter {
     List<String> mItemList = Collections.EMPTY_LIST;
     List<Date> mEventList = Collections.EMPTY_LIST;
     int mToday, mMonth, mYear, mDisplayMonth, mDisplayYear;
-    int mCurrentDayTextColor, mDaysOfMonthTextColor, mDaysOfWeekTextColor, mMonthNameTextColor,
-    mEventDayBackgroundColor, mEventDayTextColor;
+    int mCurrentDayTextColor, mDaysOfMonthTextColor, mDaysOfWeekTextColor, mMonthNameTextColor;
 
     public CalendarGridAdapter(Context context, int year, int month, int today){
         mContext = context;
@@ -146,7 +145,7 @@ public class CalendarGridAdapter extends BaseAdapter {
     }
 
     /**
-     * This method updates the view based to the year and month specified
+     * This method updates the view based on the year and month passed
      * @param year
      * @param month
      */
