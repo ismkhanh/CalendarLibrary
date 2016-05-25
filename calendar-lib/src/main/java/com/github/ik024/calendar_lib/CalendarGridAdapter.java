@@ -42,23 +42,12 @@ public class CalendarGridAdapter extends BaseAdapter {
         mYear = mDisplayYear = year;
     }
 
-    public void updateCalendar(int year, int month){
-        mDisplayMonth = month;
-        mDisplayYear = year;
-
-        Calendar calendar = new GregorianCalendar(year, month, 1);
-        mItemList = getItemList(calendar);
-        notifyDataSetChanged();
-    }
-
-    public void setEventList(List<Date> eventList){
-        mEventList = eventList;
-        notifyDataSetChanged();
-    }
-    public List<String> getItemList(){
-        return mItemList;
-    }
-
+    /**
+     * This method generates the days of the month to be displayed
+     *
+     * @param calendar Species for which month the days should be generated
+     * @return itemsList list of days for the month to be displayed
+     */
     private List<String> getItemList(Calendar calendar){
         List<String> itemList = new ArrayList<>();
         itemList.add("Sun");
@@ -82,7 +71,7 @@ public class CalendarGridAdapter extends BaseAdapter {
         int day = 1;
         for(int i =0;i<numOfDays+firstDayOfMonth;i++){
             //checking for first day of the day match
-            //if first day of month is Tuesday (i.e firstDayOfMonth = 2)
+            //if first day of month is Tuesday (i.e firstDayOfMonth = 2 [3-1]
             //then [0][1] values in the list will be empty
             if(i >= firstDayOfMonth ) {
                 itemList.add(""+day);
@@ -94,34 +83,6 @@ public class CalendarGridAdapter extends BaseAdapter {
         }
 
         return itemList;
-    }
-
-    private Date getDate(int year, int month, int day) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, year);
-        cal.set(Calendar.MONTH, month);
-        cal.set(Calendar.DAY_OF_MONTH, day);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
-        return cal.getTime();
-    }
-
-    public void setCurrentDayTextColor(int color){
-        mCurrentDayTextColor = color;
-    }
-
-    public void setDaysOfMonthTextColor(int color){
-        mDaysOfMonthTextColor = color;
-    }
-
-    public void setDaysOfWeekTextColor(int color){
-        mDaysOfWeekTextColor = color;
-    }
-
-    public void setMonthNameTextColor(int color){
-        mMonthNameTextColor = color;
     }
 
     @Override
@@ -179,6 +140,73 @@ public class CalendarGridAdapter extends BaseAdapter {
 
         }
         return convertView;
+    }
+
+    /**
+     * This method updates the view based to the year and month specified
+     * @param year
+     * @param month
+     */
+    public void updateCalendar(int year, int month){
+        mDisplayMonth = month;
+        mDisplayYear = year;
+
+        Calendar calendar = new GregorianCalendar(year, month, 1);
+        mItemList = getItemList(calendar);
+        notifyDataSetChanged();
+    }
+
+    /**
+     * This method will highlight the event dates
+     *
+     * @param eventList List of dates
+     */
+    public void setEventList(List<Date> eventList){
+        mEventList = eventList;
+        notifyDataSetChanged();
+    }
+
+    /**
+     * @return mItemList - list fo days of a month
+     */
+    public List<String> getItemList(){
+        return mItemList;
+    }
+
+    /**
+     * This method takes in year, month & day integer values and generates a date object
+     *
+     * @param year
+     * @param month
+     * @param day
+     * @return Date - a date object
+     */
+    private Date getDate(int year, int month, int day) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, day);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
+    public void setCurrentDayTextColor(int color){
+        mCurrentDayTextColor = color;
+    }
+
+    public void setDaysOfMonthTextColor(int color){
+        mDaysOfMonthTextColor = color;
+    }
+
+    public void setDaysOfWeekTextColor(int color){
+        mDaysOfWeekTextColor = color;
+    }
+
+    public void setMonthNameTextColor(int color){
+        mMonthNameTextColor = color;
     }
 
     MyViewHolder mHolder;
