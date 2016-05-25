@@ -1,8 +1,7 @@
-package com.github.ik024.ikzCalendar;
+package com.github.ik024.calendar_lib;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +58,7 @@ public class CalendarGridAdapter extends BaseAdapter {
     public List<String> getItemList(){
         return mItemList;
     }
+
     private List<String> getItemList(Calendar calendar){
         List<String> itemList = new ArrayList<>();
         itemList.add("Sun");
@@ -69,18 +69,26 @@ public class CalendarGridAdapter extends BaseAdapter {
         itemList.add("Fri");
         itemList.add("Sat");
 
+        //getting first day of the month [sun-1; mon-2; tue-3; wed-4; thu-5; fri-6; sat-7;]
         int firstDayOfMonth = calendar.get(Calendar.DAY_OF_WEEK);
+        //total number of days in a month
         int numOfDays = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        if(firstDayOfMonth > 1){
+
+        //coz array starts with 0 and Month day starts with 1
+        if(firstDayOfMonth > 0){
             firstDayOfMonth = firstDayOfMonth -1;
         }
-        Log.d("calendar", "firstDayOfMonth: "+firstDayOfMonth+"; numOfDays: "+numOfDays);
+
         int day = 1;
         for(int i =0;i<numOfDays+firstDayOfMonth;i++){
+            //checking for first day of the day match
+            //if first day of month is Tuesday (i.e firstDayOfMonth = 2)
+            //then [0][1] values in the list will be empty
             if(i >= firstDayOfMonth ) {
                 itemList.add(""+day);
                 day++;
             }else{
+                //adding empty space to list until first day of month ('firstDayOfMonth') is reached
                 itemList.add("");
             }
         }

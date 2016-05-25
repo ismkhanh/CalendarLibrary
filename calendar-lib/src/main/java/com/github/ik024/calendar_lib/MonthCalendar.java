@@ -1,4 +1,4 @@
-package com.github.ik024.ikzCalendar;
+package com.github.ik024.calendar_lib;
 
 import android.content.Context;
 import android.content.res.TypedArray;

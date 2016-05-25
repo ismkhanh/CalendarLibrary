@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.ik024.MainActivity">
+    tools:context=".MonthViewDemo">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,7 +13,7 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-    <com.github.ik024.ikzCalendar.MonthCalendar xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.github.ik024.calendar_lib.MonthCalendar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/calendar_month_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

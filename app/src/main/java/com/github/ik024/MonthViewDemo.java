@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.github.ik024.ikzCalendar.ICalendarClickListeners;
-import com.github.ik024.ikzCalendar.MonthCalendar;
+import com.github.ik024.calendar_lib.ICalendarClickListeners;
+import com.github.ik024.calendar_lib.MonthCalendar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ICalendarClickListeners{
+public class MonthViewDemo extends AppCompatActivity implements ICalendarClickListeners{
 
     MonthCalendar monthCalendar;
 
