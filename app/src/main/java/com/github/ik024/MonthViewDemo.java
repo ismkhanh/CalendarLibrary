@@ -24,15 +24,34 @@ public class MonthViewDemo extends AppCompatActivity implements CalendarClickLis
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //getting reference to MonthCalendarView
         monthCalendarView = (MonthCalendarView) findViewById(R.id.calendar_month_view);
+
+        //registering the click listeners
         monthCalendarView.registerClickListener(this);
 
+        //creating list of events
+        List<Date> eventList = getEventList();
+
+        //adding events to the calendar
+        monthCalendarView.setEventList(eventList);
+    }
+
+    @Override
+    public void dateClicked(Date dateClicked) {
+        //TODO: depending on the date clicked perform your action
+        Toast.makeText(this, "date: "+dateClicked.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    private List<Date> getEventList(){
+        //generating dummy event list
         List<Date> eventList = new ArrayList<>();
         eventList.add(getDate(2016, 4, 9));
         eventList.add(getDate(2016, 4, 11));
         eventList.add(getDate(2016, 4, 13));
         eventList.add(getDate(2016, 4, 15));
-        monthCalendarView.setEventList(eventList);
+
+        return eventList;
     }
 
     private Date getDate(int year, int month, int day) {
@@ -45,10 +64,5 @@ public class MonthViewDemo extends AppCompatActivity implements CalendarClickLis
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
         return cal.getTime();
-    }
-
-    @Override
-    public void dateClicked(Date dateClicked) {
-        Toast.makeText(this, "date: "+dateClicked.toString(), Toast.LENGTH_LONG).show();
     }
 }
