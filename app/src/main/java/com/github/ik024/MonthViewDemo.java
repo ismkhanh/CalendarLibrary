@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.github.ik024.calendar_lib.CalendarClickListeners;
-import com.github.ik024.calendar_lib.MonthCalendarView;
+import com.github.ik024.calendar_lib.MonthView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MonthViewDemo extends AppCompatActivity implements CalendarClickListeners {
 
-    MonthCalendarView monthCalendarView;
+    MonthView monthView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +25,16 @@ public class MonthViewDemo extends AppCompatActivity implements CalendarClickLis
         setSupportActionBar(toolbar);
 
         //getting reference to MonthCalendarView
-        monthCalendarView = (MonthCalendarView) findViewById(R.id.calendar_month_view);
+        monthView = (MonthView) findViewById(R.id.calendar_month_view);
 
         //registering the click listeners
-        monthCalendarView.registerClickListener(this);
+        monthView.registerClickListener(this);
 
         //creating list of events
         List<Date> eventList = getEventList();
 
         //adding events to the calendar
-        monthCalendarView.setEventList(eventList);
+        monthView.setEventList(eventList);
     }
 
     @Override

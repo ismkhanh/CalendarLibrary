@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,16 +21,16 @@ import java.util.List;
 /**
  * Created by ismail.khan2 on 4/22/2016.
  */
-public class MonthCalendarView extends LinearLayout {
+public class MonthView extends LinearLayout {
 
     Context mContext;
     RelativeLayout mRlHeader;
     ImageView mIvLeftArrow, mIvRightArrow;
     TextView mTvMonthName;
-    GridView mGvMonth;
+    CustomGridView mGvMonth;
     LinearLayout mRootLayout;
 
-    CalendarGridAdapter mCalendarGridAdapter;
+    MonthGridAdapter mMonthGridAdapter;
     int selectedYear, selectedMonth;
 
     int currentDayTextColor, daysOfMonthTextColor, daysOfWeekTextColor, monthTextColor,
@@ -41,12 +40,12 @@ public class MonthCalendarView extends LinearLayout {
 
     CalendarClickListeners mListener;
 
-    public MonthCalendarView(Context context) {
+    public MonthView(Context context) {
         super(context);
         initLayout(context, null);
     }
 
-    public MonthCalendarView(Context context, AttributeSet attributeSet) {
+    public MonthView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         initLayout(context, attributeSet);
     }
@@ -64,18 +63,18 @@ public class MonthCalendarView extends LinearLayout {
         mContext = context;
 
         if (attrs != null) {
-            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MonthCalendarView);
-            currentDayTextColor = typedArray.getColor(R.styleable.MonthCalendarView_currentDayTextColor,
+            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MonthView);
+            currentDayTextColor = typedArray.getColor(R.styleable.MonthView_currentDayTextColor,
                     ContextCompat.getColor(context, R.color.colorAccent));
-            daysOfMonthTextColor = typedArray.getColor(R.styleable.MonthCalendarView_daysOfMonthTextColor,
+            daysOfMonthTextColor = typedArray.getColor(R.styleable.MonthView_daysOfMonthTextColor,
                     Color.BLACK);
-            monthTextColor = typedArray.getColor(R.styleable.MonthCalendarView_monthNameTextColor,
+            monthTextColor = typedArray.getColor(R.styleable.MonthView_monthNameTextColor,
                     Color.RED);
-            daysOfWeekTextColor = typedArray.getColor(R.styleable.MonthCalendarView_daysOfWeekTextColor,
+            daysOfWeekTextColor = typedArray.getColor(R.styleable.MonthView_daysOfWeekTextColor,
                     Color.BLACK);
-            calendarBackgroundColor = typedArray.getColor(R.styleable.MonthCalendarView_calendarBackgroundColor, Color.TRANSPARENT);
-            mLeftArrowDrawable = typedArray.getDrawable(R.styleable.MonthCalendarView_prevButtonBackgroundResource);
-            mRightArrowDrawable = typedArray.getDrawable(R.styleable.MonthCalendarView_nextButtonBackgroundResource);
+            calendarBackgroundColor = typedArray.getColor(R.styleable.MonthView_calendarBackgroundColor, Color.TRANSPARENT);
+            mLeftArrowDrawable = typedArray.getDrawable(R.styleable.MonthView_prevButtonBackgroundResource);
+            mRightArrowDrawable = typedArray.getDrawable(R.styleable.MonthView_nextButtonBackgroundResource);
         } else {
             currentDayTextColor = ContextCompat.getColor(context, R.color.colorAccent);
             daysOfMonthTextColor = Color.GRAY;
@@ -93,13 +92,13 @@ public class MonthCalendarView extends LinearLayout {
         }
 
         LayoutInflater inflator = LayoutInflater.from(context);
-        inflator.inflate(R.layout.calendar_month_view, this);
+        inflator.inflate(R.layout.month_view, this);
 
         mRlHeader = (RelativeLayout) findViewById(R.id.rl_month_view_header);
         mIvLeftArrow = (ImageView) findViewById(R.id.ib_month_view_left);
         mIvRightArrow = (ImageView) findViewById(R.id.ib_month_view_right);
         mTvMonthName = (TextView) findViewById(R.id.tv_month_view_name);
-        mGvMonth = (GridView) findViewById(R.id.gv_month_view);
+        mGvMonth = (CustomGridView) findViewById(R.id.gv_month_view);
         mRootLayout = (LinearLayout) findViewById(R.id.rl_cm_root);
 
         //setting image background
@@ -114,13 +113,14 @@ public class MonthCalendarView extends LinearLayout {
         selectedYear = calendar.get(Calendar.YEAR);
         selectedMonth = calendar.get(Calendar.MONTH);
 
-        mCalendarGridAdapter = new CalendarGridAdapter(context, selectedYear, selectedMonth, calendar.get(Calendar.DAY_OF_MONTH));
-        mGvMonth.setAdapter(mCalendarGridAdapter);
+        mMonthGridAdapter = new MonthGridAdapter(context, selectedYear, selectedMonth, calendar.get(Calendar.DAY_OF_MONTH));
+        mGvMonth.setAdapter(mMonthGridAdapter);
+        mGvMonth.setExpanded(true);
 
-        mCalendarGridAdapter.setCurrentDayTextColor(currentDayTextColor);
-        mCalendarGridAdapter.setDaysOfMonthTextColor(daysOfMonthTextColor);
-        mCalendarGridAdapter.setDaysOfWeekTextColor(daysOfWeekTextColor);
-        mCalendarGridAdapter.setMonthNameTextColor(monthTextColor);
+        mMonthGridAdapter.setCurrentDayTextColor(currentDayTextColor);
+        mMonthGridAdapter.setDaysOfMonthTextColor(daysOfMonthTextColor);
+        mMonthGridAdapter.setDaysOfWeekTextColor(daysOfWeekTextColor);
+        mMonthGridAdapter.setMonthNameTextColor(monthTextColor);
 
         mTvMonthName.setText(getMonthName(selectedMonth)+" "+selectedYear);
 
@@ -133,7 +133,7 @@ public class MonthCalendarView extends LinearLayout {
                 } else {
                     selectedMonth = selectedMonth - 1;
                 }
-                mCalendarGridAdapter.updateCalendar(selectedYear, selectedMonth);
+                mMonthGridAdapter.updateCalendar(selectedYear, selectedMonth);
                 mTvMonthName.setText(getMonthName(selectedMonth)+" "+selectedYear);
             }
         });
@@ -147,7 +147,7 @@ public class MonthCalendarView extends LinearLayout {
                 } else {
                     selectedMonth = selectedMonth + 1;
                 }
-                mCalendarGridAdapter.updateCalendar(selectedYear, selectedMonth);
+                mMonthGridAdapter.updateCalendar(selectedYear, selectedMonth);
                 mTvMonthName.setText(getMonthName(selectedMonth)+" "+selectedYear);
             }
         });
@@ -155,7 +155,7 @@ public class MonthCalendarView extends LinearLayout {
         mGvMonth.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                List<String> itemList = mCalendarGridAdapter.getItemList();
+                List<String> itemList = mMonthGridAdapter.getItemList();
                 String item = itemList.get(position);
                 if (position >= 7) {
                     if (!item.isEmpty()) {
@@ -167,30 +167,42 @@ public class MonthCalendarView extends LinearLayout {
                 }
             }
         });
+
+    }
+
+    public void disableDateClickListener(boolean disabled){
+      // mGvMonth.setEnabled(disabled);
+    }
+
+    public void updateCalendar(int year, int month){
+        if(mMonthGridAdapter != null) {
+            mMonthGridAdapter.updateCalendar(year, month);
+            mTvMonthName.setText(getMonthName(month));
+        }
     }
 
     public void setEventList(List<Date> eventList) {
-        mCalendarGridAdapter.setEventList(eventList);
+        mMonthGridAdapter.setEventList(eventList);
     }
 
     public void setCurrentDayTextColor(int color) {
         currentDayTextColor = color;
-        mCalendarGridAdapter.setCurrentDayTextColor(currentDayTextColor);
+        mMonthGridAdapter.setCurrentDayTextColor(currentDayTextColor);
     }
 
     public void setDaysOfMonthTextColor(int color) {
         daysOfMonthTextColor = color;
-        mCalendarGridAdapter.setDaysOfMonthTextColor(daysOfMonthTextColor);
+        mMonthGridAdapter.setDaysOfMonthTextColor(daysOfMonthTextColor);
     }
 
     public void setDaysOfWeekTextColor(int color) {
         daysOfWeekTextColor = color;
-        mCalendarGridAdapter.setDaysOfWeekTextColor(daysOfWeekTextColor);
+        mMonthGridAdapter.setDaysOfWeekTextColor(daysOfWeekTextColor);
     }
 
     public void setMonthNameTextColor(int color) {
         monthTextColor = color;
-        mCalendarGridAdapter.setMonthNameTextColor(monthTextColor);
+        mMonthGridAdapter.setMonthNameTextColor(monthTextColor);
     }
 
     public void setCalendarBackgroundColor(){
@@ -207,12 +219,20 @@ public class MonthCalendarView extends LinearLayout {
         mIvRightArrow.setBackground(rightDrawable);
     }
 
-    public void setEnabledLeftArrow(boolean enabled){
+    public void setEnabledPreviousButton(boolean enabled){
         mIvLeftArrow.setEnabled(enabled);
     }
 
-    public void setEnabledRightArrow(boolean enabled){
+    public void setEnabledRightButton(boolean enabled){
         mIvRightArrow.setEnabled(enabled);
+    }
+
+    public void setPreviousButtonVisibility(int visibility){
+        mIvLeftArrow.setVisibility(visibility);
+    }
+
+    public void setNextButtonVisibility(int visibility){
+        mIvRightArrow.setVisibility(visibility);
     }
 
     private String getMonthName(int month) {

@@ -2,6 +2,7 @@ package com.github.ik024.calendar_lib;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import java.util.List;
 /**
  * Created by ismail.khan2 on 3/18/2016.
  */
-public class CalendarGridAdapter extends BaseAdapter {
+public class MonthGridAdapter extends BaseAdapter {
 
     Context mContext;
     LayoutInflater mInflater;
@@ -28,7 +29,7 @@ public class CalendarGridAdapter extends BaseAdapter {
     int mToday, mMonth, mYear, mDisplayMonth, mDisplayYear;
     int mCurrentDayTextColor, mDaysOfMonthTextColor, mDaysOfWeekTextColor, mMonthNameTextColor;
 
-    public CalendarGridAdapter(Context context, int year, int month, int today){
+    public MonthGridAdapter(Context context, int year, int month, int today){
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mItemList = new ArrayList<>();
@@ -48,6 +49,7 @@ public class CalendarGridAdapter extends BaseAdapter {
      * @return itemsList list of days for the month to be displayed
      */
     private List<String> getItemList(Calendar calendar){
+        Log.d("getItemList:", "inside");
         List<String> itemList = new ArrayList<>();
         itemList.add("Sun");
         itemList.add("Mon");
@@ -73,13 +75,15 @@ public class CalendarGridAdapter extends BaseAdapter {
             //if first day of month is Tuesday (i.e firstDayOfMonth = 2 [3-1]
             //then [0][1] values in the list will be empty
             if(i >= firstDayOfMonth ) {
-                itemList.add(""+day);
+                itemList.add("" + day);
                 day++;
             }else{
                 //adding empty space to list until first day of month ('firstDayOfMonth') is reached
                 itemList.add("");
             }
         }
+
+        Log.d("yearview","item size: "+itemList.size());
 
         return itemList;
     }
@@ -111,9 +115,7 @@ public class CalendarGridAdapter extends BaseAdapter {
 
         String item = mItemList.get(position);
 
-
         if(position < 7){//position 0-6 are reserved for days of the weeks (weekdays & weekends)
-
             mHolder.tvCalendarMonthDay.setVisibility(View.GONE);
             mHolder.tvCalendarWeekDayName.setVisibility(View.VISIBLE);
             mHolder.tvCalendarWeekDayName.setText(item);
@@ -121,6 +123,7 @@ public class CalendarGridAdapter extends BaseAdapter {
 
         }else{ //positions >= 7 are reserved for days of the month (eg 1 to 31)
 
+            Log.d("yearview","pos>7");
             mHolder.tvCalendarWeekDayName.setVisibility(View.GONE);
             mHolder.tvCalendarMonthDay.setVisibility(View.VISIBLE);
             mHolder.tvCalendarMonthDay.setText(mItemList.get(position));
@@ -214,10 +217,10 @@ public class CalendarGridAdapter extends BaseAdapter {
     MyViewHolder mHolder;
     class MyViewHolder{
 
-        TextView tvCalendarMonthDay, tvCalendarWeekDayName;
+        AutoResizeTextView tvCalendarMonthDay, tvCalendarWeekDayName;
         public MyViewHolder(View view){
-            tvCalendarWeekDayName = (TextView) view.findViewById(R.id.row_cm_tv_week_day_name);
-            tvCalendarMonthDay = (TextView) view.findViewById(R.id.row_cm_tv_day);
+            tvCalendarWeekDayName = (AutoResizeTextView) view.findViewById(R.id.row_cm_tv_week_day_name);
+            tvCalendarMonthDay = (AutoResizeTextView) view.findViewById(R.id.row_cm_tv_day);
         }
     }
 }

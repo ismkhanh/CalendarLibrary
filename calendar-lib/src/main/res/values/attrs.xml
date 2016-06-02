@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MonthCalendarView">
+    <declare-styleable name="MonthView">
         <attr name="currentDayTextColor" format="color"/>
         <attr name="monthNameTextColor" format="color"/>
         <attr name="daysOfMonthTextColor" format="color"/>
@@ -11,6 +11,11 @@
         <attr name="MonthNameBackgroundColor" format="color" />
         <attr name="prevButtonBackgroundResource" format="reference" />
         <attr name="nextButtonBackgroundResource" format="reference" />
-
     </declare-styleable>
+
+    <declare-styleable name="YearView">
+        <attr name="prevButtonBackgroundResource1" format="reference" />
+        <attr name="nextButtonBackgroundResource1" format="reference" />
+    </declare-styleable>
+
 </resources>

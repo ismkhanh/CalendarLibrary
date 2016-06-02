@@ -4,18 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <com.github.ik024.calendar_lib.AutoResizeTextView
         android:id="@+id/row_cm_tv_week_day_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textStyle="bold"
-        android:padding="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="13dp"
+        android:maxLines="1"/>
 
-    <TextView
+    <com.github.ik024.calendar_lib.AutoResizeTextView
         android:id="@+id/row_cm_tv_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="13dp"
+        android:maxLines="1"/>
 </LinearLayout>

@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Month"
-            android:textSize="28sp" />
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/ib_month_view_right"
@@ -34,11 +34,13 @@
             android:layout_centerVertical="true" />
     </RelativeLayout>
 
-    <GridView
+    <com.github.ik024.calendar_lib.CustomGridView
         android:id="@+id/gv_month_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="7">
+        android:numColumns="7"
+        android:padding="5dp"
+        android:scrollbars="none">
 
-    </GridView>
+    </com.github.ik024.calendar_lib.CustomGridView>
 </LinearLayout>
