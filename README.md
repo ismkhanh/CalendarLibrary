@@ -75,16 +75,17 @@ Following attributes can be customized:
 public class MonthViewDemo extends AppCompatActivity implements YearViewClickListeners{
 ...
 
- @Override
-    public void dateClicked(Date dateClicked) {
-        Toast.makeText(this, dateClicked.toString(), Toast.LENGTH_LONG).show();
+@Override
+    public void dateClicked(int year, int month, int day) {
+        Toast.makeText(this, "year: "+year+";\nmonth: "+month+";\nday: "+day, Toast.LENGTH_LONG).show();
+        //TODO: Perform your actions based on year or month or day clicked
     }
     
 ...    
 }
 ```
 
-**For more refer __[MonthViewDemo.java](https://github.com/ik024/CalendarLibrary/blob/master/app/src/main/java/com/github/ik024/YearViewDemo.java)__ file.**
+**For more refer __[YearViewDemo.java](https://github.com/ik024/CalendarLibrary/blob/master/app/src/main/java/com/github/ik024/YearViewDemo.java)__ file.**
 
 ## Customizations
 
