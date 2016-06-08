@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,8 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.github.ik024.YearViewDemo">
 
-    <com.github.ik024.calendar_lib.YearView
+    <com.github.ik024.calendar_lib.custom.YearView
         android:id="@+id/year_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:currentDayTextColorYV="@color/colorPrimaryDark"
+        app:daysOfWeekTextColorYV="@android:color/black"
+        app:daysOfMonthTextColorYV="@android:color/white"
+        app:monthNameTextColorYV="@color/colorAccent"
+        app:prevButtonBackgroundResourceYV="@drawable/ic_left_arrow"
+        app:nextButtonBackgroundResourceYV="@drawable/ic_right_arrow"
+        app:calendarBackgroundColorYV="@android:color/darker_gray"
+        app:displayYearTextColorYV="@color/colorPrimaryDark"/>
 </RelativeLayout>

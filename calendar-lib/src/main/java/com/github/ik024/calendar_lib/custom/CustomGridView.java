@@ -1,4 +1,4 @@
-package com.github.ik024.calendar_lib;
+package com.github.ik024.calendar_lib.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;

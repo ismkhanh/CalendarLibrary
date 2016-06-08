@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="MonthView">
-        <attr name="currentDayTextColor" format="color"/>
-        <attr name="monthNameTextColor" format="color"/>
-        <attr name="daysOfMonthTextColor" format="color"/>
-        <attr name="daysOfWeekTextColor" format="color"/>
-        <attr name="eventDayBackgroundColor" format="color"/>
-        <attr name="eventDayTextColor" format="color"/>
-        <attr name="calendarBackgroundColor" format="color" />
-        <attr name="MonthNameBackgroundColor" format="color" />
-        <attr name="prevButtonBackgroundResource" format="reference" />
-        <attr name="nextButtonBackgroundResource" format="reference" />
+        <attr name="currentDayTextColorMV" format="color"/>
+        <attr name="monthNameTextColorMV" format="color"/>
+        <attr name="daysOfMonthTextColorMV" format="color"/>
+        <attr name="daysOfWeekTextColorMV" format="color"/>
+        <attr name="eventDayBackgroundColorMV" format="color"/>
+        <attr name="eventDayTextColorMV" format="color"/>
+        <attr name="calendarBackgroundColorMV" format="color" />
+        <attr name="monthNameBackgroundColorMV" format="color" />
+        <attr name="prevButtonBackgroundResourceMV" format="reference" />
+        <attr name="nextButtonBackgroundResourceMV" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="YearView">
-        <attr name="prevButtonBackgroundResource1" format="reference" />
-        <attr name="nextButtonBackgroundResource1" format="reference" />
+        <attr name="currentDayTextColorYV" format="color"/>
+        <attr name="monthNameTextColorYV" format="color"/>
+        <attr name="daysOfMonthTextColorYV" format="color"/>
+        <attr name="daysOfWeekTextColorYV" format="color"/>
+        <attr name="eventDayBackgroundColorYV" format="color"/>
+        <attr name="eventDayTextColorYV" format="color"/>
+        <attr name="calendarBackgroundColorYV" format="color" />
+        <attr name="monthNameBackgroundColorYV" format="color" />
+        <attr name="displayYearTextColorYV" format="color" />
+        <attr name="headerBackgroundColorYV" format="color" />
+        <attr name="prevButtonBackgroundResourceYV" format="reference" />
+        <attr name="nextButtonBackgroundResourceYV" format="reference" />
     </declare-styleable>
 
 </resources>

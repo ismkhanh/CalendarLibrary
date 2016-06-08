@@ -34,7 +34,7 @@
             android:layout_centerVertical="true" />
     </RelativeLayout>
 
-    <com.github.ik024.calendar_lib.CustomGridView
+    <com.github.ik024.calendar_lib.custom.CustomGridView
         android:id="@+id/gv_month_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,5 +42,5 @@
         android:padding="5dp"
         android:scrollbars="none">
 
-    </com.github.ik024.calendar_lib.CustomGridView>
+    </com.github.ik024.calendar_lib.custom.CustomGridView>
 </LinearLayout>

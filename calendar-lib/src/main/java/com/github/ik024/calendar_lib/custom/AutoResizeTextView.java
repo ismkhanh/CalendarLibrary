@@ -1,4 +1,4 @@
-package com.github.ik024.calendar_lib;
+package com.github.ik024.calendar_lib.custom;
 
 
 import android.annotation.TargetApi;

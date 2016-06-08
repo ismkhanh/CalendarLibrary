@@ -13,17 +13,17 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-    <com.github.ik024.calendar_lib.MonthView xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.github.ik024.calendar_lib.custom.MonthView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/calendar_month_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:currentDayTextColor="@color/colorAccent"
-        app:daysOfWeekTextColor="@android:color/black"
-        app:daysOfMonthTextColor="@android:color/darker_gray"
-        app:monthNameTextColor="@color/colorAccent"
-        app:prevButtonBackgroundResource="@drawable/ic_left_arrow"
-        app:nextButtonBackgroundResource="@drawable/ic_right_arrow"
-        app:calendarBackgroundColor="@android:color/white"
+        app:currentDayTextColorMV="@color/colorAccent"
+        app:daysOfWeekTextColorMV="@android:color/black"
+        app:daysOfMonthTextColorMV="@android:color/darker_gray"
+        app:monthNameTextColorMV="@color/colorAccent"
+        app:prevButtonBackgroundResourceMV="@drawable/ic_left_arrow"
+        app:nextButtonBackgroundResourceMV="@drawable/ic_right_arrow"
+        app:calendarBackgroundColorMV="@android:color/white"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>

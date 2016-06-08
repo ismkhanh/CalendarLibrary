@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.github.ik024.calendar_lib.AutoResizeTextView
+    <com.github.ik024.calendar_lib.custom.AutoResizeTextView
         android:id="@+id/row_cm_tv_week_day_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:paddingBottom="13dp"
         android:maxLines="1"/>
 
-    <com.github.ik024.calendar_lib.AutoResizeTextView
+    <com.github.ik024.calendar_lib.custom.AutoResizeTextView
         android:id="@+id/row_cm_tv_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

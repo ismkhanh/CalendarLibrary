@@ -1,13 +1,14 @@
-package com.github.ik024.calendar_lib;
+package com.github.ik024.calendar_lib.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+
+import com.github.ik024.calendar_lib.R;
+import com.github.ik024.calendar_lib.custom.AutoResizeTextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -28,6 +29,7 @@ public class MonthGridAdapter extends BaseAdapter {
     List<Date> mEventList = Collections.EMPTY_LIST;
     int mToday, mMonth, mYear, mDisplayMonth, mDisplayYear;
     int mCurrentDayTextColor, mDaysOfMonthTextColor, mDaysOfWeekTextColor, mMonthNameTextColor;
+    boolean mIsMonthView = true;
 
     public MonthGridAdapter(Context context, int year, int month, int today){
         mContext = context;
@@ -40,6 +42,7 @@ public class MonthGridAdapter extends BaseAdapter {
         mToday = today;
         mMonth = mDisplayMonth = month;
         mYear = mDisplayYear = year;
+
     }
 
     /**
@@ -49,7 +52,6 @@ public class MonthGridAdapter extends BaseAdapter {
      * @return itemsList list of days for the month to be displayed
      */
     private List<String> getItemList(Calendar calendar){
-        Log.d("getItemList:", "inside");
         List<String> itemList = new ArrayList<>();
         itemList.add("Sun");
         itemList.add("Mon");
@@ -83,8 +85,6 @@ public class MonthGridAdapter extends BaseAdapter {
             }
         }
 
-        Log.d("yearview","item size: "+itemList.size());
-
         return itemList;
     }
 
@@ -107,7 +107,7 @@ public class MonthGridAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
             convertView = mInflater.inflate(R.layout.row_calendar_month, parent, false);
-            mHolder = new MyViewHolder(convertView);
+            mHolder = new MyViewHolder(convertView, mIsMonthView);
             convertView.setTag(mHolder);
         }else{
             mHolder = (MyViewHolder) convertView.getTag();
@@ -123,7 +123,6 @@ public class MonthGridAdapter extends BaseAdapter {
 
         }else{ //positions >= 7 are reserved for days of the month (eg 1 to 31)
 
-            Log.d("yearview","pos>7");
             mHolder.tvCalendarWeekDayName.setVisibility(View.GONE);
             mHolder.tvCalendarMonthDay.setVisibility(View.VISIBLE);
             mHolder.tvCalendarMonthDay.setText(mItemList.get(position));
@@ -145,6 +144,16 @@ public class MonthGridAdapter extends BaseAdapter {
 
         }
         return convertView;
+    }
+    /**
+     * This method specifies if this is used for MonthView or YearView to change the text size
+     * @param isMonthView
+     */
+    public void setIsMonthView(boolean isMonthView){
+        mIsMonthView = isMonthView;
+        if(!isMonthView) {
+            notifyDataSetChanged();
+        }
     }
 
     /**
@@ -200,27 +209,38 @@ public class MonthGridAdapter extends BaseAdapter {
 
     public void setCurrentDayTextColor(int color){
         mCurrentDayTextColor = color;
+        notifyDataSetChanged();
     }
 
     public void setDaysOfMonthTextColor(int color){
         mDaysOfMonthTextColor = color;
+        notifyDataSetChanged();
     }
 
     public void setDaysOfWeekTextColor(int color){
         mDaysOfWeekTextColor = color;
+        notifyDataSetChanged();
     }
 
     public void setMonthNameTextColor(int color){
         mMonthNameTextColor = color;
+        notifyDataSetChanged();
     }
 
     MyViewHolder mHolder;
     class MyViewHolder{
 
         AutoResizeTextView tvCalendarMonthDay, tvCalendarWeekDayName;
-        public MyViewHolder(View view){
+        public MyViewHolder(View view, boolean isMonthView){
             tvCalendarWeekDayName = (AutoResizeTextView) view.findViewById(R.id.row_cm_tv_week_day_name);
             tvCalendarMonthDay = (AutoResizeTextView) view.findViewById(R.id.row_cm_tv_day);
+            if(isMonthView){
+                tvCalendarMonthDay.setMinTextSize(35);
+                tvCalendarWeekDayName.setMinTextSize(35);
+            }else{
+                tvCalendarMonthDay.setMinTextSize(25);
+                tvCalendarWeekDayName.setMinTextSize(25);
+            }
         }
     }
 }
