@@ -114,6 +114,7 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
 
         setCalendarBackgroundColor(calendarBackgroundColor);
         setDisplayYearTextColor(displayYearTextColor);
+        setHeaderBackgroundColor(headerBackgroundColor);
 
         settingUpMonthsOfTheYear();
 
@@ -205,6 +206,9 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
         calendarLayout.setBackgroundColor(calendarBackgroundColor);
     }
 
+    public void setHeaderBackgroundColor(int headerBackgroundColor){
+        headerLayout.setBackgroundColor(headerBackgroundColor);
+    }
 
 
     private void settingUpMonthsOfTheYear(){

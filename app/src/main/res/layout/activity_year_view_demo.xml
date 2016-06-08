@@ -16,10 +16,11 @@
         android:layout_height="wrap_content"
         app:currentDayTextColorYV="@color/colorPrimaryDark"
         app:daysOfWeekTextColorYV="@android:color/black"
-        app:daysOfMonthTextColorYV="@android:color/white"
+        app:daysOfMonthTextColorYV="@android:color/darker_gray"
         app:monthNameTextColorYV="@color/colorAccent"
         app:prevButtonBackgroundResourceYV="@drawable/ic_left_arrow"
         app:nextButtonBackgroundResourceYV="@drawable/ic_right_arrow"
-        app:calendarBackgroundColorYV="@android:color/darker_gray"
-        app:displayYearTextColorYV="@color/colorPrimaryDark"/>
+        app:calendarBackgroundColorYV="@android:color/white"
+        app:displayYearTextColorYV="@color/colorAccent"
+        app:headerBackgroundColorYV="@android:color/white"/>
 </RelativeLayout>
