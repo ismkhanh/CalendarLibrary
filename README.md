@@ -1,7 +1,7 @@
 # Android Calendar Library
 MonthView           |  YearView
 :-------------------------:|:-------------------------:
-![alt tab](https://cloud.githubusercontent.com/assets/4861930/15537040/ee3cfa7a-2291-11e6-99b5-bc48bc7db484.png)  |  ![alt tab](https://cloud.githubusercontent.com/assets/4861930/15537040/ee3cfa7a-2291-11e6-99b5-bc48bc7db484.png)
+![alt tab](https://cloud.githubusercontent.com/assets/4861930/15537040/ee3cfa7a-2291-11e6-99b5-bc48bc7db484.png)  |  ![alt tab](https://cloud.githubusercontent.com/assets/4861930/15888021/e055587a-2d82-11e6-9329-4da8b8d8dad8.png)
 
 ## Usage
 
