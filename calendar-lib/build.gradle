@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/ik024/CalendarLibrary'
     gitUrl = 'https://github.com/ik024/CalendarLibrary.git'
 
-    libraryVersion = '0.0.2'
+    libraryVersion = '2.0.0'
 
     developerId = 'ik024'
     developerName = 'Ismail Khan H'

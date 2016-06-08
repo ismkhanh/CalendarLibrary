@@ -124,8 +124,8 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
 
         tvDisplayYear.setText(""+mDisplayYear);
 
-        jan.registerClickListener(this);
-        feb.registerClickListener(this);
+        setupClickListeners();
+
 
         jan.setOnClickListener(new OnClickListener() {
             @Override
@@ -150,6 +150,21 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
                 updateYearCalendar(mDisplayYear);
             }
         });
+    }
+
+    private void setupClickListeners() {
+        jan.registerClickListener(this);
+        feb.registerClickListener(this);
+        march.registerClickListener(this);
+        april.registerClickListener(this);
+        may.registerClickListener(this);
+        june.registerClickListener(this);
+        july.registerClickListener(this);
+        aug.registerClickListener(this);
+        sept.registerClickListener(this);
+        oct.registerClickListener(this);
+        nov.registerClickListener(this);
+        dec.registerClickListener(this);
     }
 
     public void registerYearViewClickListener(YearViewClickListeners listener){
