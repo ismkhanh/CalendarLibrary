@@ -3,6 +3,8 @@ MonthView           |  YearView
 :-------------------------:|:-------------------------:
 ![alt tab](https://cloud.githubusercontent.com/assets/4861930/15537040/ee3cfa7a-2291-11e6-99b5-bc48bc7db484.png)  |  ![alt tab](https://cloud.githubusercontent.com/assets/4861930/15537040/ee3cfa7a-2291-11e6-99b5-bc48bc7db484.png)
 
+## Usage
+
 In order to use this library in your project add the below dependencies is your project's
  **build.gradle** file
 
