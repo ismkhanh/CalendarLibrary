@@ -6,14 +6,15 @@ In order to use this library in your project add the below dependencies is your 
  **build.gradle** file
 
 ```
- ...
+...
 dependencies {
     compile 'com.github.ik024:calendar-lib:2.0.0'
 }
+...
+```
 
 ## MonthView Example
 
-```
 **Add the following in your xml file:**
 ```
 <com.github.ik024.calendar_lib.MonthView 
@@ -24,6 +25,7 @@ dependencies {
 ```
 
 **Implement the CalendarClickListener in your Activity:**
+
 ```
 public class MonthViewDemo extends AppCompatActivity implements MonthViewClickListeners{
 ...
@@ -43,7 +45,6 @@ public class MonthViewDemo extends AppCompatActivity implements MonthViewClickLi
 
 Following attributes can be customized:
 
-
 ```
  <attr name="currentDayTextColorMV" format="color"/>
  <attr name="monthNameTextColorMV" format="color"/>
@@ -59,8 +60,8 @@ Following attributes can be customized:
 
 ## YearView Example
 
-```
 **Add the following in your xml file:**
+
 ```
 <com.github.ik024.calendar_lib.YearView 
         android:id="@+id/calendar_year_view"
@@ -88,7 +89,6 @@ public class MonthViewDemo extends AppCompatActivity implements YearViewClickLis
 ## Customizations
 
 Following attributes can be customized:
-
 
 ```
  <attr name="currentDayTextColorYV" format="color"/>
