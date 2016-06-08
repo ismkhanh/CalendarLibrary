@@ -2,6 +2,7 @@ package com.github.ik024;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.github.ik024.calendar_lib.custom.YearView;
@@ -15,6 +16,9 @@ public class YearViewDemo extends AppCompatActivity implements YearViewClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year_view_demo);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("YearViewDemo");
         mYearView = (YearView) findViewById(R.id.year_view);
         mYearView.registerYearViewClickListener(this);
     }

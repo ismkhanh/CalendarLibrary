@@ -23,6 +23,7 @@ public class MonthViewDemo extends AppCompatActivity implements MonthViewClickLi
         setContentView(R.layout.activity_month_view_demo);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("MonthViewDemo");
 
         //getting reference to MonthCalendarView
         monthView = (MonthView) findViewById(R.id.calendar_month_view);
