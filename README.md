@@ -27,7 +27,7 @@ dependencies {
         android:layout_centerInParent="true"/>
 ```
 
-**Implement the CalendarClickListener in your Activity:**
+**Implement the MonthViewClickListener in your Activity:**
 
 ```
 public class MonthViewDemo extends AppCompatActivity implements MonthViewClickListeners{
@@ -73,7 +73,7 @@ Following attributes can be customized:
         android:layout_centerInParent="true"/>
 ```
 
-**Implement the CalendarClickListener in your Activity:**
+**Implement the YearViewClickListener in your Activity:**
 ```
 public class MonthViewDemo extends AppCompatActivity implements YearViewClickListeners{
 ...
