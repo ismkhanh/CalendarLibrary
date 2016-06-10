@@ -118,7 +118,8 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
 
         settingUpMonthsOfTheYear();
 
-        mDisplayYear = 2016;
+        Calendar cal = Calendar.getInstance();
+        mDisplayYear = cal.get(Calendar.YEAR);;
 
         updateYearCalendar(mDisplayYear);
 
