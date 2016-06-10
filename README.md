@@ -11,7 +11,7 @@ In order to use this library in your project add the below dependencies is your 
 ```
 ...
 dependencies {
-    compile 'com.github.ik024:calendar-lib:2.0.0'
+    compile 'com.github.ik024:calendar-lib:2.0.1'
 }
 ...
 ```
