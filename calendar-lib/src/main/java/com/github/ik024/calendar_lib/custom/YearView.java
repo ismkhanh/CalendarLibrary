@@ -21,6 +21,7 @@ import com.github.ik024.calendar_lib.listeners.YearViewClickListeners;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by ismail.khan2 on 5/26/2016.
@@ -39,6 +40,7 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
             headerBackgroundColor;
 
     YearViewClickListeners mYearClickListeners;
+    private List<Date> eventList;
 
     public YearView(Context context) {
         super(context);
@@ -151,6 +153,7 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
                 updateYearCalendar(mDisplayYear);
             }
         });
+
     }
 
     private void setupClickListeners() {
@@ -202,6 +205,8 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
         oct.updateCalendar(year, 9);
         nov.updateCalendar(year, 10);
         dec.updateCalendar(year, 11);
+
+        updateEventList();
     }
 
     private void monthViewSetters(MonthView monthView){
@@ -226,6 +231,28 @@ public class YearView extends LinearLayout implements MonthViewClickListeners {
         headerLayout.setBackgroundColor(headerBackgroundColor);
     }
 
+    public void setEventList(List<Date> eventList){
+        this.eventList = eventList;
+        updateEventList();
+
+    }
+
+    private void updateEventList(){
+        if(eventList != null && eventList.size() > 0) {
+            jan.setEventList(eventList);
+            feb.setEventList(eventList);
+            march.setEventList(eventList);
+            april.setEventList(eventList);
+            may.setEventList(eventList);
+            june.setEventList(eventList);
+            july.setEventList(eventList);
+            aug.setEventList(eventList);
+            sept.setEventList(eventList);
+            oct.setEventList(eventList);
+            nov.setEventList(eventList);
+            dec.setEventList(eventList);
+        }
+    }
 
     private void settingUpMonthsOfTheYear(){
         jan.setPreviousButtonVisibility(View.GONE);
